@@ -3,20 +3,18 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+var img_data = [
+	{
+		img_src:"http://pokemonqrcode.com/image/cache/catalog/Pokemon/Gen1/bulbasaur-500x500.jpg",
+		img_alt:"belba"
+	},
+	{
+		img_src:"http://pokemonqrcode.com/image/cache/catalog/Pokemon/Gen1/charmander-500x500.jpg",
+		img_alt:"char"
+	},
+	{
+		img_src:"http://pokemonqrcode.com/image/cache/catalog/Pokemon/Gen1/squirtle-500x500.jpg",
+		img_alt:"escuero"
+	},
+];
+Template.images.helpers({images:img_data});
